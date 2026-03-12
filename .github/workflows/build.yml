@@ -28,20 +28,22 @@ jobs:
       - name: Create configs.json
         run: echo '${{ secrets.THINGSBOARD_CONFIGS }}' > configs.json
 
+
+      # 第一步修复：自动接受 Android 所有的 SDK 许可
+      - name: Accept Android Licenses
+        run: yes | sdkmanager --licenses || true
+
+      # 第二步修复（可选但推荐）：手动安装报错中提到的特定 NDK 版本
+      - name: Install Android NDK
+        run: |
+          $ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager --install "ndk;29.0.13113456"
+
       - name: Install Dependencies
         run: flutter pub get
 
-      - name: Build Android Bundle (AAB)
-        run: flutter build appbundle --no-tree-shake-icons --dart-define-from-file configs.json
 
       - name: Build Android APK (Optional)
         run: flutter build apk --no-tree-shake-icons --dart-define-from-file configs.json
-
-      - name: Upload AAB
-        uses: actions/upload-artifact@v4
-        with:
-          name: tbmobile-release-aab
-          path: build/app/outputs/bundle/release/app-release.aab
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
