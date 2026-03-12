@@ -1,18 +1,18 @@
-name: Flutter Build
+name: Build ThingsBoard App
 
 on:
   push:
     branches: [ main ]
-  workflow_dispatch: # 允许手动触发
+  workflow_dispatch: # 允许手动点击按钮触发编译
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       
       - name: Setup Java
-        uses: actions/setup-java@v3
+        uses: actions/setup-java@v4
         with:
           distribution: 'temurin'
           java-version: '17'
@@ -20,18 +20,31 @@ jobs:
       - name: Setup Flutter
         uses: subosito/flutter-action@v2
         with:
-          flutter-version: '3.24.4' # 请根据项目 README 核对版本
+          # 根据 ThingsBoard 版本选择 Flutter 版本
+          # 1.8.0 推荐 3.29.0; 1.6.0 推荐 3.24.4
+          flutter-version: '3.29.0' 
           channel: 'stable'
+
+      - name: Create configs.json
+        run: echo '${{ secrets.THINGSBOARD_CONFIGS }}' > configs.json
 
       - name: Install Dependencies
         run: flutter pub get
 
-      # 如果你有 configs.json，可以通过 GitHub Secrets 注入，这里假设手动放入或不依赖
-      - name: Build APK
-        run: flutter build apk --release --no-tree-shake-icons
+      - name: Build Android Bundle (AAB)
+        run: flutter build appbundle --no-tree-shake-icons --dart-define-from-file configs.json
+
+      - name: Build Android APK (Optional)
+        run: flutter build apk --no-tree-shake-icons --dart-define-from-file configs.json
+
+      - name: Upload AAB
+        uses: actions/upload-artifact@v4
+        with:
+          name: tbmobile-release-aab
+          path: build/app/outputs/bundle/release/app-release.aab
 
       - name: Upload APK
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
-          name: app-release
+          name: tbmobile-release-apk
           path: build/app/outputs/flutter-apk/app-release.apk
