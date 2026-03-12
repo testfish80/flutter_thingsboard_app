@@ -1,0 +1,9 @@
+{
+  "thingsboardApiEndpoint": "http://10.9.8.6:8080",
+  "appLinksUrlHost": "10.9.8.6:8080",
+  "appLinksUrlScheme": "http",
+  "androidApplicationId": "org.thingsboard.app",
+  "androidApplicationName": "MyApp",
+  "thingsboardOAuth2CallbackUrlScheme": "org.thingsboard.app.auth",
+  "thingsboardAndroidAppSecret": "Qm0xdlNQYjRsMzJ4dThCRndJRDVrOVVBaVZrcDhzVGt5SzZvNmRXMzJRVkFIdXhnYkJzOFQyTGNCY1F0OFdPdw=="
+}
