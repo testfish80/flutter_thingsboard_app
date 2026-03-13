@@ -29,12 +29,7 @@ class LoginWidget extends HookConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final loading = useState(true);
     final providers = ref.watch(oauthProvider);
-
-      // 定义加载端点的函数  
-  Future<void> _loadCurrentEndpoint() async {  
-    final endpoint = await getIt<IEndpointService>().getEndpoint();  
-    form.control('serverUrl').value = endpoint;  
-  }  
+ 
     final form = useMemoized(
       () => FormGroup({
       "serverUrl": FormControl<String>(  
@@ -47,6 +42,13 @@ class LoginWidget extends HookConsumerWidget {
         "password": FormControl(validators: [Validators.required]),
       }),
     );
+
+          // 定义加载端点的函数  
+  Future<void> _loadCurrentEndpoint() async {  
+    final endpoint = await getIt<IEndpointService>().getEndpoint();  
+    form.control('serverUrl').value = endpoint;  
+  } 
+    
     useEffect(() {
       if (providers is! AsyncLoading) {
         loading.value = false;
