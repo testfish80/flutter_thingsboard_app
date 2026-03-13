@@ -20,6 +20,7 @@ import 'package:thingsboard_app/generated/l10n.dart';
 import 'package:thingsboard_app/locator.dart';
 import 'package:thingsboard_app/thingsboard_client.dart';
 import 'package:thingsboard_app/utils/ui/visibility_widget.dart';
+import 'package:thingsboard_app/utils/services/endpoint/i_endpoint_service.dart';
 
 class LoginWidget extends HookConsumerWidget {
   const LoginWidget({super.key});
@@ -46,6 +47,18 @@ class LoginWidget extends HookConsumerWidget {
       }
       return null;
     }, [providers]);
+
+    // 添加这个新的 useEffect 来加载当前端点  
+    useEffect(() {  
+      _loadCurrentEndpoint();  
+      return null;  
+    }, []);  
+  
+  Future<void> _loadCurrentEndpoint() async {  
+    final endpoint = await getIt<IEndpointService>().getEndpoint();  
+    form.control('serverUrl').value = endpoint;  
+    }
+    
     final mediaQuery = MediaQuery.of(context);
     return Stack(
       children: [
@@ -186,27 +199,33 @@ class LoginWidget extends HookConsumerWidget {
   }
 }
 
-Future<void> onLoginPressed(
-  BuildContext context,
-  FormGroup form,
-  WidgetRef ref,
-  ValueNotifier<bool> loading,
-) async {
-  FocusScope.of(context).unfocus();
-  form.markAllAsTouched();
-  if (form.invalid) {
-    return;
-  }
-  final String username = form.control('email').value.toString();
-  final String password = form.control('password').value.toString();
-  try {
-    loading.value = true;
-  final res =   await ref.read(loginProvider.notifier).login(username, password);
+Future<void> onLoginPressed(  
+  BuildContext context,  
+  FormGroup form,  
+  WidgetRef ref,  
+  ValueNotifier<bool> loading,  
+) async {  
+  FocusScope.of(context).unfocus();  
+  form.markAllAsTouched();  
+  if (form.invalid) {  
+    return;  
+  }  
     
-    loading.value = res;
-  } catch (e) {
-    form.setErrors({"err": {}});
-  }
+  // 保存服务器地址  
+  final serverUrl = form.control('serverUrl').value?.toString();  
+  if (serverUrl != null && serverUrl.isNotEmpty) {  
+    await getIt<IEndpointService>().setEndpoint(serverUrl);  
+  }  
+    
+  final String username = form.control('email').value.toString();  
+  final String password = form.control('password').value.toString();  
+  try {  
+    loading.value = true;  
+    final res = await ref.read(loginProvider.notifier).login(username, password);  
+    loading.value = res;  
+  } catch (e) {  
+    form.setErrors({"err": {}});  
+  }  
 }
 
 Future<void> onLoginWithBarcode(BuildContext context) async {
