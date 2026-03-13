@@ -29,6 +29,12 @@ class LoginWidget extends HookConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final loading = useState(true);
     final providers = ref.watch(oauthProvider);
+
+      // 定义加载端点的函数  
+  Future<void> _loadCurrentEndpoint() async {  
+    final endpoint = await getIt<IEndpointService>().getEndpoint();  
+    form.control('serverUrl').value = endpoint;  
+  }  
     final form = useMemoized(
       () => FormGroup({
       "serverUrl": FormControl<String>(  
@@ -41,23 +47,19 @@ class LoginWidget extends HookConsumerWidget {
         "password": FormControl(validators: [Validators.required]),
       }),
     );
-   // useEffect(() {
-   //   if (providers is! AsyncLoading) {
-    //    loading.value = false;
-     // }
-     // return null;
-    //}, [providers]);
+    useEffect(() {
+      if (providers is! AsyncLoading) {
+        loading.value = false;
+      }
+      return null;
+    }, [providers]);
 
     // 添加这个新的 useEffect 来加载当前端点  
     useEffect(() {  
       _loadCurrentEndpoint();  
       return null;  
     }, []);  
-  
-  Future<void> _loadCurrentEndpoint() async {  
-    final endpoint = await getIt<IEndpointService>().getEndpoint();  
-    form.control('serverUrl').value = endpoint;  
-    }
+
     
     final mediaQuery = MediaQuery.of(context);
     return Stack(
