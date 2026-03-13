@@ -30,6 +30,10 @@ class LoginWidget extends HookConsumerWidget {
     final providers = ref.watch(oauthProvider);
     final form = useMemoized(
       () => FormGroup({
+      "serverUrl": FormControl<String>(  
+        value: '', // 将在初始化时加载  
+        validators: [Validators.required],  
+       ), 
         "email": FormControl(
           validators: [Validators.required, Validators.email],
         ),
@@ -94,6 +98,8 @@ class LoginWidget extends HookConsumerWidget {
                               Column(
                                 spacing: 24,
                                 children: [
+                                  //const ServerUrlWidget(),  // 添加服务器地址组件  
+                                  //const SizedBox(height: 16),  
                                   TbTextField(
                                     formControlName: "email",
                                     label: S.of(context).email,
