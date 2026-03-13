@@ -115,8 +115,6 @@ class LoginWidget extends HookConsumerWidget {
                               Column(
                                 spacing: 24,
                                 children: [
-                                  const ServerUrlWidget(),  // 添加服务器地址组件  
-                                  const SizedBox(height: 16),  
                                   TbTextField(
                                     formControlName: "email",
                                     label: S.of(context).email,
