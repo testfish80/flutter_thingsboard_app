@@ -41,12 +41,12 @@ class LoginWidget extends HookConsumerWidget {
         "password": FormControl(validators: [Validators.required]),
       }),
     );
-    useEffect(() {
-      if (providers is! AsyncLoading) {
-        loading.value = false;
-      }
-      return null;
-    }, [providers]);
+   // useEffect(() {
+   //   if (providers is! AsyncLoading) {
+    //    loading.value = false;
+     // }
+     // return null;
+    //}, [providers]);
 
     // 添加这个新的 useEffect 来加载当前端点  
     useEffect(() {  
