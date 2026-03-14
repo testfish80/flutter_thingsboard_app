@@ -46,7 +46,7 @@ class _AlarmsPageState extends State<AlarmsPage>
               return Scaffold(
                 appBar: TbAppBar(
                   title: Text(
-                    S.of(context).alarms(2),
+                    S.of(context).alarm,
                     style: TbTextStyles.titleXs,
                   ),
                   actions: [
