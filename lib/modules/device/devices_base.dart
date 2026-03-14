@@ -23,7 +23,7 @@ import 'package:thingsboard_app/utils/utils.dart';
 mixin DevicesBase on EntitiesBase<EntityData, EntityDataQuery> {
   final IOverlayService overlayService = getIt();
   @override
-  String get title => 'Devices';
+  String get title => S.current.device;
 
   @override
   String get noItemsFoundText => 'No devices found';
