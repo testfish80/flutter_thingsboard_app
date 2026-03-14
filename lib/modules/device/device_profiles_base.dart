@@ -20,7 +20,7 @@ mixin DeviceProfilesBase on EntitiesBase<DeviceProfileInfo, PageLink> {
   final RefreshDeviceCounts refreshDeviceCounts = RefreshDeviceCounts();
 
   @override
-  String get title => 'Devices';
+  String get title => S.current.device;
 
   @override
   String get noItemsFoundText => 'No devices found';
