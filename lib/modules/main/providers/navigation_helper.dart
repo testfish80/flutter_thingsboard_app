@@ -4,6 +4,8 @@ import 'package:thingsboard_app/modules/main/model/navigation_item_data.dart';
 import 'package:thingsboard_app/modules/notification/widgets/notification_icon.dart';
 import 'package:thingsboard_app/thingsboard_client.dart';
 
+import 'package:thingsboard_app/generated/l10n.dart';
+
 class NavigationHelper {
 static  int? getCurrentIndexFromPath(String path, List<NavigationItemData> items) {
  
@@ -16,35 +18,35 @@ static  int? getCurrentIndexFromPath(String path, List<NavigationItemData> items
   }
 
 // Helper functions
-static String getLabel(PageLayout pageLayout) {
-  if (pageLayout.label != null) {
-    return pageLayout.label!;
-  }
+  static String getLabel(PageLayout pageLayout) {
+    if (pageLayout.label != null) {
+      return pageLayout.label!;
+    }
 
-  switch (pageLayout.id) {
-    case Pages.home:
-      return 'Home';
-    case Pages.alarms:
-      return 'Alarms';
-    case Pages.devices:
-      return 'Devices';
-    case Pages.customers:
-      return 'Customers';
-    case Pages.assets:
-      return 'Assets';
-    case Pages.audit_logs:
-      return 'Audit Logs';
-    case Pages.notifications:
-      return 'Notifications';
-    case Pages.device_list:
-      return 'Device List';
-    case Pages.dashboards:
-      return 'Dashboards';
-    case Pages.undefined:
-    case null:
-      return pageLayout.label ?? '-';
+    switch (pageLayout.id) {
+      case Pages.home:
+        return S.current.home; // 返回 "首页"
+      case Pages.alarms:
+        return S.current.alarm; // 返回 "告警" 
+      case Pages.devices:
+        return S.current.device; // 返回 "设备"
+      case Pages.customers:
+        return S.current.customers; // 返回 "客户"
+      case Pages.assets:
+        return S.current.assets; // 返回 "资产"
+      case Pages.audit_logs:
+        return S.current.auditLogs; // 返回 "审计日志"
+      case Pages.notifications:
+        return S.current.notifications(0); // 返回 "条通知"
+      case Pages.device_list:
+        return S.current.deviceList; // 返回 "设备列表"
+      case Pages.dashboards:
+        return S.current.dashboards(0); // 返回 "个仪表板"
+      case Pages.undefined:
+      case null:
+        return pageLayout.label ?? '-';
+    }
   }
-}
 
 static IconData getIcon(PageLayout pageLayout) {
   if (pageLayout.icon != null) {
