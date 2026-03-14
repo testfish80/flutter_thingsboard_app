@@ -208,6 +208,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "alarmTypeList": MessageLookupByLibrary.simpleMessage("告警类型列表"),
     "alarmTypes": MessageLookupByLibrary.simpleMessage("告警类型"),
     "alarms": m2,
+    "alarm": MessageLookupByLibrary.simpleMessage("告警"),
     "all": MessageLookupByLibrary.simpleMessage("全部"),
     "allDevices": MessageLookupByLibrary.simpleMessage("所有设备"),
     "allowAccess": MessageLookupByLibrary.simpleMessage("允许访问"),
@@ -292,9 +293,9 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "copy": MessageLookupByLibrary.simpleMessage("复制"),
     "copy32digitsKeyToYourAuthenticationAppOrScanQrcode":
-        MessageLookupByLibrary.simpleMessage(
-          "复制 32 位密钥到您的身份验证器应用或扫描下方二维码",
-        ),
+    MessageLookupByLibrary.simpleMessage(
+      "复制 32 位密钥到您的身份验证器应用或扫描下方二维码",
+    ),
     "country": MessageLookupByLibrary.simpleMessage("国家"),
     "createAccount": MessageLookupByLibrary.simpleMessage("创建账户"),
     "createPassword": MessageLookupByLibrary.simpleMessage("创建密码"),
@@ -323,6 +324,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "设备配置",
     ),
     "devices": m9,
+    "device": MessageLookupByLibrary.simpleMessage("设备"),
     "digitsCode": m10,
     "discardChanges": MessageLookupByLibrary.simpleMessage("放弃更改"),
     "domain": MessageLookupByLibrary.simpleMessage("域名"),
@@ -354,9 +356,9 @@ class MessageLookup extends MessageLookupByLibrary {
       "输入手机号码作为您的身份验证器",
     ),
     "enterAnEmailToUseAsYourAuthenticator":
-        MessageLookupByLibrary.simpleMessage(
-          "输入一个邮箱作为您的身份验证器。",
-        ),
+    MessageLookupByLibrary.simpleMessage(
+      "输入一个邮箱作为您的身份验证器。",
+    ),
     "entityType": MessageLookupByLibrary.simpleMessage("实体类型"),
     "entityView": MessageLookupByLibrary.simpleMessage("实体视图"),
     "errorOccured": m12,
@@ -380,9 +382,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "fatalError": MessageLookupByLibrary.simpleMessage("致命错误"),
     "filters": MessageLookupByLibrary.simpleMessage("过滤器"),
     "firebaseIsNotConfiguredPleaseReferToTheOfficialFirebase":
-        MessageLookupByLibrary.simpleMessage(
-          "Firebase 未配置。请参考官方 Firebase 文档获取配置指南。",
-        ),
+    MessageLookupByLibrary.simpleMessage(
+      "Firebase 未配置。请参考官方 Firebase 文档获取配置指南。",
+    ),
     "firstName": MessageLookupByLibrary.simpleMessage("名字"),
     "firstNameRequireText": MessageLookupByLibrary.simpleMessage("名字是必填项"),
     "firstNameUpper": MessageLookupByLibrary.simpleMessage("名字"),
@@ -438,9 +440,9 @@ class MessageLookup extends MessageLookupByLibrary {
       "移动应用包",
     ),
     "mobileDashboardShouldBeConfiguredInDeviceProfile":
-        MessageLookupByLibrary.simpleMessage(
-          "移动仪表板应在设备配置文件中配置！",
-        ),
+    MessageLookupByLibrary.simpleMessage(
+      "移动仪表板应在设备配置文件中配置！",
+    ),
     "more": MessageLookupByLibrary.simpleMessage("更多"),
     "newPassword": MessageLookupByLibrary.simpleMessage("新密码"),
     "newPassword2": MessageLookupByLibrary.simpleMessage("确认新密码"),
@@ -475,7 +477,7 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "openAppSettingsToGrantPermissionMessage": m14,
     "openSettingsAndGrantAccessToCameraToContinue":
-        MessageLookupByLibrary.simpleMessage("打开设置并授予摄像头访问权限以继续"),
+    MessageLookupByLibrary.simpleMessage("打开设置并授予摄像头访问权限以继续"),
     "openWifiSettings": MessageLookupByLibrary.simpleMessage(
       "打开 Wi-Fi 设置",
     ),
@@ -490,7 +492,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "passwordRequireText": MessageLookupByLibrary.simpleMessage("密码是必填项"),
     "passwordReset": MessageLookupByLibrary.simpleMessage("重置密码"),
     "passwordResetLinkSuccessfullySentNotification":
-        MessageLookupByLibrary.simpleMessage("密码重置链接发送成功！"),
+    MessageLookupByLibrary.simpleMessage("密码重置链接发送成功！"),
     "passwordResetText": MessageLookupByLibrary.simpleMessage(
       "输入和账号关联的邮箱，我们将发送密码重置链接到您的邮箱",
     ),
@@ -508,17 +510,17 @@ class MessageLookup extends MessageLookupByLibrary {
       "E.164 格式的手机号码，例如 +1201550123",
     ),
     "pleaseContactYourSystemAdministrator":
-        MessageLookupByLibrary.simpleMessage(
-          "请联系您的系统管理员",
-        ),
+    MessageLookupByLibrary.simpleMessage(
+      "请联系您的系统管理员",
+    ),
     "pleaseFollowTheNextStepsToConnectYourPhoneTo":
-        MessageLookupByLibrary.simpleMessage(
-          "请按照以下步骤将您的手机连接到设备",
-        ),
+    MessageLookupByLibrary.simpleMessage(
+      "请按照以下步骤将您的手机连接到设备",
+    ),
     "pleaseFollowTheNextStepsToReconnectnyourPhoneToYour":
-        MessageLookupByLibrary.simpleMessage(
-          "请按照以下步骤重新连接您的手机到常用的 Wi-Fi",
-        ),
+    MessageLookupByLibrary.simpleMessage(
+      "请按照以下步骤重新连接您的手机到常用的 Wi-Fi",
+    ),
     "pleaseScanQrCodeOnYourDevice": MessageLookupByLibrary.simpleMessage(
       "请扫描您设备上的二维码",
     ),
@@ -532,9 +534,9 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "provisionedSuccessfully": MessageLookupByLibrary.simpleMessage("设备配置成功"),
     "pushNotificationsAreNotConfiguredpleaseContactYourSystemAdministrator":
-        MessageLookupByLibrary.simpleMessage(
-          "推送通知未配置。请联系您的系统管理员。",
-        ),
+    MessageLookupByLibrary.simpleMessage(
+      "推送通知未配置。请联系您的系统管理员。",
+    ),
     "queue": MessageLookupByLibrary.simpleMessage("队列"),
     "queueStats": MessageLookupByLibrary.simpleMessage("队列统计"),
     "ready": MessageLookupByLibrary.simpleMessage("准备就绪"),
@@ -579,9 +581,9 @@ class MessageLookup extends MessageLookupByLibrary {
       "设置一种验证方式",
     ),
     "setUpAVerificationMethodToContinueWithYourLogin":
-        MessageLookupByLibrary.simpleMessage(
-          "设置一种验证方式以继续登录",
-        ),
+    MessageLookupByLibrary.simpleMessage(
+      "设置一种验证方式以继续登录",
+    ),
     "severity": MessageLookupByLibrary.simpleMessage("严重程度"),
     "signIn": MessageLookupByLibrary.simpleMessage("登录"),
     "signUp": MessageLookupByLibrary.simpleMessage("注册"),
@@ -630,9 +632,9 @@ class MessageLookup extends MessageLookupByLibrary {
       "需要进行双因素身份验证",
     ),
     "twofactorAuthenticationProtectsYourAccountFromUnauthorizedAccessAllYou":
-        MessageLookupByLibrary.simpleMessage(
-          "双因素身份验证可防止您的账户被未经授权访问。您只需在登录时输入安全码即可。",
-        ),
+    MessageLookupByLibrary.simpleMessage(
+      "双因素身份验证可防止您的账户被未经授权访问。您只需在登录时输入安全码即可。",
+    ),
     "type": MessageLookupByLibrary.simpleMessage("类型"),
     "unableConnectToDevice": MessageLookupByLibrary.simpleMessage(
       "无法连接到设备",
@@ -673,8 +675,8 @@ class MessageLookup extends MessageLookupByLibrary {
     "yesDeactivate": MessageLookupByLibrary.simpleMessage("是的，停用"),
     "yesDiscard": MessageLookupByLibrary.simpleMessage("是的，放弃"),
     "youHaveUnsavedChangesAreYouSureYouWantTo":
-        MessageLookupByLibrary.simpleMessage(
-          "您有未保存的更改。确定要离开此页面吗？",
-        ),
+    MessageLookupByLibrary.simpleMessage(
+      "您有未保存的更改。确定要离开此页面吗？",
+    ),
   };
 }
